@@ -1,0 +1,19 @@
+# ============================================
+# robots.txt — DOBLAZERO (doblazero.co)
+# ============================================
+# Permitir TODOS los bots de búsqueda estándar
+User-agent: *
+
+# Permitir sitemap
+Sitemap: https://doblazero.co/sitemap.xml
+
+# Permitir todo (sitio público)
+Allow: /
+
+# Archivos estáticos permitidos
+Allow: /index.html
+Allow: /og-image.jpg
+Allow: /favicon.svg
+
+# No bloquear ningún recurso
+# (no hay rutas privadas en sitio estático)
