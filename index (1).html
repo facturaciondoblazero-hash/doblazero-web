@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOBLAZERO · Doblez industrial sin espera</title>
+<meta name="description" content="Doblez industrial en lámina con capacidad de hasta 6 metros. Entregamos rápido y cumplimos lo que prometemos. Cotiza por WhatsApp.">
+
+<!-- Favicon: ícono Z -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%23111111'/%3E%3Ctext x='50' y='78' font-family='Arial Black,sans-serif' font-size='82' font-weight='900' text-anchor='middle' fill='%23F5A800'%3EZ%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Bebas+Neue&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --negro:#1B1A15;
+  --panel:#252320;
+  --panel-2:#2B2A22;
+  --candela:#F5A800;
+  --candela-d:#D89400;
+  --acero:#8D8B82;
+  --acero-c:#C6C4BC;
+  --papel:#EAE6DD;
+  --line:#35332E;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  background:var(--negro);color:var(--papel);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+section{position:relative;}
+
+/* ---------- shared type ---------- */
+.eyebrow{font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:var(--candela);display:inline-flex;align-items:center;gap:12px;}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--candela);display:inline-block;}
+h2.h{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,68px);line-height:.96;letter-spacing:.01em;margin:16px 0 18px;}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--acero-c);max-width:56ch;}
+
+/* ---------- logo wordmark (CSS) ---------- */
+.wm{font-family:'Anton',sans-serif;letter-spacing:1px;line-height:1;display:inline-block;white-space:nowrap;}
+.wm .a{color:var(--papel);}
+.wm .z{color:var(--candela);}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:15px;padding:15px 26px;border-radius:4px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .2s,color .2s,border-color .2s;}
+.btn svg{width:18px;height:18px;}
+.btn-wa{background:var(--candela);color:#111;}
+.btn-wa:hover{background:var(--papel);transform:translateY(-2px);}
+.btn-ghost{border-color:var(--line);color:var(--papel);}
+.btn-ghost:hover{border-color:var(--candela);color:var(--candela);}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,border-color .3s,padding .3s;border-bottom:1px solid transparent;}
+header.solid{background:rgba(27,26,21,.92);backdrop-filter:blur(10px);border-bottom-color:var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
+.nav .links{display:flex;align-items:center;gap:34px;}
+.nav .links a{font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--acero-c);transition:color .2s;}
+.nav .links a:hover{color:var(--candela);}
+.nav-cta{display:flex;align-items:center;gap:18px;}
+.burger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;flex-direction:column;justify-content:center;gap:5px;}
+.burger span{display:block;height:2px;background:var(--papel);transition:.25s;}
+
+/* ---------- hero ---------- */
+.hero{padding:160px 0 90px;position:relative;overflow:hidden;}
+.hero::before{/* faint Z watermark */
+  content:"Z";position:absolute;right:-4%;top:36%;transform:translateY(-50%);
+  font-family:'Anton',sans-serif;font-size:min(58vw,720px);color:#fff;opacity:.025;line-height:.7;pointer-events:none;z-index:0;}
+.hero .wrap{position:relative;z-index:2;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(54px,11vw,128px);line-height:1.06;letter-spacing:0;margin:22px 0 0;}
+.hero h1 .amber{color:var(--candela);}
+.hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--acero-c);max-width:50ch;margin:26px 0 36px;}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;}
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:64px;}
+.stats .s{background:var(--negro);padding:26px 24px;}
+.stats .s .k{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--candela);}
+.stats .s .l{font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--acero);margin-top:6px;}
+
+/* fold divider */
+.fold{height:0;border-top:1px solid var(--line);position:relative;}
+.fold::after{content:"";position:absolute;left:24px;top:-1px;width:64px;height:3px;background:var(--candela);}
+
+/* ---------- generic section ---------- */
+.sec{padding:96px 0;}
+.sec.panel{background:linear-gradient(180deg,var(--panel),var(--negro));}
+.bar-head{display:flex;gap:22px;align-items:flex-start;}
+.bar-head .bar{width:5px;align-self:stretch;background:var(--candela);border-radius:1px;flex-shrink:0;}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px;transition:border-color .2s,transform .2s;}
+.card:hover{border-color:var(--candela);transform:translateY(-3px);}
+.card .ico{width:46px;height:46px;color:var(--candela);margin-bottom:18px;}
+.card h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.02em;margin-bottom:8px;}
+.card p{font-size:15px;color:var(--acero-c);}
+
+/* capacity feature */
+.cap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.cap .big{font-family:'Anton',sans-serif;font-size:clamp(120px,20vw,240px);line-height:.82;color:var(--candela);}
+.cap .big small{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4vw,40px);color:var(--papel);letter-spacing:.04em;line-height:1;margin-top:6px;}
+.cap ul{list-style:none;margin-top:26px;}
+.cap li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:16px;color:var(--acero-c);}
+.cap li:first-child{border-top:0;}
+.cap li b{color:var(--papel);font-weight:700;}
+.cap li .chk{color:var(--candela);flex-shrink:0;margin-top:3px;}
+
+/* products */
+.prod{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
+.prod .p{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px 20px;display:flex;align-items:center;gap:14px;transition:.2s;}
+.prod .p:hover{border-color:var(--candela);background:var(--panel-2);}
+.prod .p .n{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--candela);min-width:34px;}
+.prod .p span{font-size:15px;color:var(--papel);font-weight:500;}
+
+/* why */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:48px;}
+.why-grid .w{background:var(--negro);padding:34px;}
+.why-grid .w .num{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--candela);}
+.why-grid .w h3{font-family:'Bebas Neue',sans-serif;font-size:25px;margin:6px 0 8px;letter-spacing:.02em;}
+.why-grid .w p{font-size:15px;color:var(--acero-c);}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;counter-reset:st;}
+.step{position:relative;padding-top:26px;}
+.step::before{counter-increment:st;content:"0" counter(st);font-family:'Anton',sans-serif;font-size:60px;color:var(--line);line-height:.7;position:absolute;top:-8px;left:0;}
+.step h3{font-family:'Bebas Neue',sans-serif;font-size:24px;margin:14px 0 6px;position:relative;}
+.step p{font-size:14px;color:var(--acero-c);}
+.step .tick{width:46px;height:3px;background:var(--candela);margin-top:6px;}
+
+/* contact */
+.contact{background:linear-gradient(180deg,var(--panel),var(--negro));}
+.cbox{background:var(--negro);border:1px solid var(--line);border-radius:14px;padding:48px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-top:40px;}
+.cbox h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5vw,54px);line-height:.98;margin-bottom:14px;}
+.cbox .amber{color:var(--candela);}
+.cbox .info{list-style:none;}
+.cbox .info li{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:15px;color:var(--acero-c);align-items:center;}
+.cbox .info li:first-child{border-top:0;}
+.cbox .info svg{width:20px;height:20px;color:var(--candela);flex-shrink:0;}
+.cbox .info a:hover{color:var(--candela);}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:54px 0 40px;}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;}
+.foot .tag{font-family:'Archivo Narrow';font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--candela);margin-top:14px;}
+.foot .meta{font-family:'Archivo Narrow';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acero);text-align:right;line-height:2;}
+.foot .meta a:hover{color:var(--candela);}
+
+/* floating whatsapp */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:10px;background:var(--candela);color:#111;font-family:'Archivo Narrow';font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:14px;padding:14px 20px;border-radius:50px;box-shadow:0 8px 30px rgba(0,0,0,.45);transition:transform .15s,background .2s;}
+.wa-float:hover{transform:scale(1.04);background:var(--papel);}
+.wa-float svg{width:22px;height:22px;}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.rv.in{opacity:1;transform:none;}
+
+/* ---------- responsive ---------- */
+@media(max-width:980px){
+  .cards,.prod{grid-template-columns:repeat(2,1fr);}
+  .cap{grid-template-columns:1fr;gap:32px;}
+  .steps{grid-template-columns:repeat(2,1fr);row-gap:36px;}
+  .cbox{grid-template-columns:1fr;gap:32px;padding:36px 28px;}
+}
+@media(max-width:760px){
+  .nav .links{position:fixed;inset:76px 0 auto 0;flex-direction:column;background:var(--negro);border-bottom:1px solid var(--line);padding:24px;gap:18px;transform:translateY(-130%);transition:transform .3s;align-items:flex-start;}
+  .nav .links.open{transform:none;}
+  .nav-cta .btn-ghost{display:none;}
+  .burger{display:flex;}
+  .stats{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .hero{padding:128px 0 70px;}
+  .sec{padding:72px 0;}
+  .wa-float span{display:none;}
+  .wa-float{padding:15px;border-radius:50%;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" aria-label="DOBLAZERO inicio"><span class="wm" style="font-size:26px"><span class="a">DOBLA</span><span class="z">ZERO</span></span></a>
+    <nav class="links" id="menu">
+      <a href="#servicios">Servicios</a>
+      <a href="#capacidad">Capacidad</a>
+      <a href="#productos">Productos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-wa" href="https://wa.me/573000000000?text=Hola%20DOBLAZERO%2C%20quiero%20cotizar%20un%20doblez" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6 0-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
+        Cotizar
+      </a>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">DOBLAZERO · Doblez industrial</span>
+    <h1>Doblez industrial<br><span class="amber">sin espera.</span></h1>
+    <p class="sub">Tú nos dices qué necesitas y nosotros lo fabricamos.</p>
+    <div class="cta-row">
+      <a class="btn btn-wa" href="https://wa.me/573000000000?text=Hola%20DOBLAZERO%2C%20quiero%20cotizar%20un%20doblez" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3zm4.6-6.2c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-.3-.2-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.4.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z"/></svg>
+        Cotizar por WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="#servicios">Ver lo que hacemos</a>
+    </div>
+
+    <div class="stats rv">
+      <div class="s"><div class="k">6 m</div><div class="l">De largo, sin empates</div></div>
+      <div class="s"><div class="k">C20–1/8"</div><div class="l">Espesores que doblamos</div></div>
+      <div class="s"><div class="k">Cero</div><div class="l">Espera en la entrega</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="fold"></div></div>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="bar-head rv"><div class="bar"></div><div>
+      <span class="eyebrow">Servicios</span>
+      <h2 class="h">Qué hacemos</h2>
+      <p class="lead">Nos adaptamos a lo que buscas y lo fabricamos: rápido, a tu medida y con la calidad que tu obra exige.</p>
+    </div></div>
+    <div class="cards">
+      <div class="card rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 30L26 30L42 14"/><path d="M6 30L6 38L38 38"/></svg>
+        <h3>Doblez de lámina hasta 6 m</h3>
+        <p>Nuestro punto fuerte: doblamos lámina desde calibre 20 a 1/8" de espesor, por 6 metros de largo en una sola pieza y sin empates.</p>
+      </div>
+      <div class="card rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="7" y="14" width="34" height="20" rx="2"/><path d="M7 24H41"/></svg>
+        <h3>Perfilería a medida</h3>
+        <p>Perfiles, canales, omegas, ángulos y zetas fabricados según tu plano o muestra física.</p>
+      </div>
+      <div class="card rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 38V10l12 8 12-8v28"/></svg>
+        <h3>Faldones y remates</h3>
+        <p>Faldones, capotes, goteros y remates para cubierta y fachada, listos para instalar.</p>
+      </div>
+      <div class="card rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 40L24 8l16 32z"/></svg>
+        <h3>Platinería</h3>
+        <p>Platinas dobladas y figuras en lámina para estructura, soportería y herrajes.</p>
+      </div>
+      <div class="card rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg>
+        <h3>Entrega rápida</h3>
+        <p>Trabajamos con tiempos reales y confirmados. Si lo prometemos, lo entregamos.</p>
+      </div>
+      <div class="card rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M24 6l16 8v12c0 9-7 14-16 16-9-2-16-7-16-16V14z"/><path d="M18 24l5 5 9-10"/></svg>
+        <h3>Asesoría técnica</h3>
+        <p>Te ayudamos a definir calibre, desarrollo y ángulos.</p>
+      </div>
+    </div>
+    <p class="rv" style="margin-top:28px;font-size:15px;color:var(--acero)">¿Prefieres traer tu propia lámina? También hacemos solo el doblez — escríbenos y lo acordamos.</p>
+  </div>
+</section>
+
+<!-- ============ CAPACIDAD ============ -->
+<section class="sec panel" id="capacidad">
+  <div class="wrap">
+    <div class="cap">
+      <div class="rv">
+        <div class="big">6 m<small>de capacidad de doblez</small></div>
+      </div>
+      <div class="rv">
+        <span class="eyebrow">El diferenciador</span>
+        <h2 class="h">Doblamos lo que otros no pueden</h2>
+        <p class="lead">Doblamos desde calibre 20 a 1/8" de espesor, por 6 metros de largo en una sola pieza. Menos cortes, menos empates y menos espera para ti.</p>
+        <ul>
+          <li><svg class="chk" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg><span><b>Hasta 6 metros</b> en un solo doblez, sin empates.</span></li>
+          <li><svg class="chk" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg><span><b>Desde calibre 20 a 1/8"</b> de espesor.</span></li>
+          <li><svg class="chk" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg><span><b>A tu medida:</b> nos adaptamos a lo que tu proyecto busca.</span></li>
+        </ul>
+        <p style="margin-top:26px;font-family:'Bebas Neue',sans-serif;font-size:clamp(21px,3vw,29px);letter-spacing:.02em;line-height:1.12;color:var(--papel)">Menos empates significa que tu trabajo <span style="color:var(--candela)">rinde más</span> y avanza más rápido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTOS ============ -->
+<section class="sec" id="productos">
+  <div class="wrap">
+    <div class="bar-head rv"><div class="bar"></div><div>
+      <span class="eyebrow">Lo que doblamos</span>
+      <h2 class="h">Hecho a tu medida</h2>
+      <p class="lead">Estos son algunos de los trabajos más comunes — pero nos adaptamos a lo que necesites. Mándanos el plano, una muestra o una foto por WhatsApp y lo cotizamos.</p>
+    </div></div>
+    <div class="prod">
+      <div class="p rv"><span class="n">01</span><span>Perfil C / canal</span></div>
+      <div class="p rv"><span class="n">02</span><span>Perfil Z</span></div>
+      <div class="p rv"><span class="n">03</span><span>Omega</span></div>
+      <div class="p rv"><span class="n">04</span><span>Ángulo / L</span></div>
+      <div class="p rv"><span class="n">05</span><span>Faldón / capote</span></div>
+      <div class="p rv"><span class="n">06</span><span>Gotero</span></div>
+      <div class="p rv"><span class="n">07</span><span>Platina doblada</span></div>
+      <div class="p rv"><span class="n">08</span><span>Remate de cubierta</span></div>
+      <div class="p rv"><span class="n">09</span><span>Cumbrera</span></div>
+      <div class="p rv"><span class="n">10</span><span>Bandeja portacable</span></div>
+      <div class="p rv"><span class="n">11</span><span>Tapa / cenefa</span></div>
+      <div class="p rv"><span class="n">12</span><span>Pieza a medida</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUÉ ============ -->
+<section class="sec panel">
+  <div class="wrap">
+    <div class="bar-head rv"><div class="bar"></div><div>
+      <span class="eyebrow">Por qué DOBLAZERO</span>
+      <h2 class="h">Cumplir vale más<br>que prometer</h2>
+    </div></div>
+    <div class="why-grid">
+      <div class="w rv"><div class="num">01</div><h3>Tu tiempo vale</h3><p>Sabemos que un doblez tarde frena toda una obra. Por eso medimos en días reales, no en promesas.</p></div>
+      <div class="w rv"><div class="num">02</div><h3>La industria no para</h3><p>Trabajamos al ritmo de quien produce. Respondemos y cotizamos rápido.</p></div>
+      <div class="w rv"><div class="num">03</div><h3>Hablamos claro</h3><p>Tono de taller: medidas, calibres y tiempos concretos. Sin relleno ni letra menuda.</p></div>
+      <div class="w rv"><div class="num">04</div><h3>Rápido y bien hecho</h3><p>Entregar rápido no significa entregar mal. Cada pieza sale con la medida y el doblez correctos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section class="sec" id="proceso">
+  <div class="wrap">
+    <div class="bar-head rv"><div class="bar"></div><div>
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2 class="h">De la lámina a tu obra</h2>
+    </div></div>
+    <div class="steps">
+      <div class="step rv"><h3>Cotizas</h3><div class="tick"></div><p>Nos mandas el plano, la muestra o una foto por WhatsApp y te damos precio y tiempo.</p></div>
+      <div class="step rv"><h3>Confirmamos</h3><div class="tick"></div><p>Acordamos calibre, desarrollo y fecha de entrega. Todo claro antes de empezar.</p></div>
+      <div class="step rv"><h3>Doblamos</h3><div class="tick"></div><p>Fabricamos tu pieza con precisión, hasta 6 metros, lista para instalar.</p></div>
+      <div class="step rv"><h3>Entregamos</h3><div class="tick"></div><p>Te entregamos en la fecha pactada. Cero espera, cero excusas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRASE ============ -->
+<section style="padding:72px 0;border-top:1px solid var(--line);text-align:center">
+  <div class="wrap rv">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,7vw,84px);line-height:.95;letter-spacing:.02em">Cero espera. <span style="color:var(--candela)">Cero excusas.</span></div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="sec contact" id="contacto">
+  <div class="wrap">
+    <span class="eyebrow rv">Cotización</span>
+    <div class="cbox rv">
+      <div>
+        <h2>El doblez no debería<br><span class="amber">detener tu proyecto.</span></h2>
+        <p class="lead" style="margin-bottom:28px">Escríbenos por WhatsApp con la medida o el plano. Te respondemos con precio y tiempo de entrega.</p>
+        <a class="btn btn-wa" href="https://wa.me/573000000000?text=Hola%20DOBLAZERO%2C%20quiero%20cotizar%20un%20doblez" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3zm4.6-6.2c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-.3-.2-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.4.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+      </div>
+      <ul class="info">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg><a href="https://wa.me/573000000000" target="_blank" rel="noopener">WhatsApp: +57 300 000 0000</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:contacto@doblazero.co">contacto@doblazero.co</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Tu ciudad, Colombia</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg><span>Lun a Vie 7:00 – 17:00 · Sáb 7:00 – 12:00</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg><a href="https://instagram.com/doblazero" target="_blank" rel="noopener">@doblazero</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <span class="wm" style="font-size:34px"><span class="a">DOBLA</span><span class="z">ZERO</span></span>
+      <div class="tag">Doblez industrial sin espera</div>
+    </div>
+    <div class="meta">
+      DOBLAZERO SAS · NIT 000.000.000-0<br>
+      <a href="https://wa.me/573000000000" target="_blank" rel="noopener">WhatsApp</a> ·
+      <a href="mailto:contacto@doblazero.co">Correo</a> ·
+      <a href="https://instagram.com/doblazero" target="_blank" rel="noopener">Instagram</a><br>
+      © <span id="yr"></span> DOBLAZERO · Colombia
+    </div>
+  </div>
+</footer>
+
+<!-- floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/573000000000?text=Hola%20DOBLAZERO%2C%20quiero%20cotizar%20un%20doblez" target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3zm4.6-6.2c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-.3-.2-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.4.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z"/></svg>
+  <span>Cotizar</span>
+</a>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // sticky header style
+  const hd = document.getElementById('top');
+  const onScroll = () => hd.classList.toggle('solid', window.scrollY > 30);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  // mobile menu
+  const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
