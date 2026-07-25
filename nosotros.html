@@ -153,6 +153,14 @@ header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,
 .band .b .n{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--candela);line-height:1;}
 .band .b .l{font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--acero);margin-top:8px;}
 
+/* ---------- team ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.tm{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px;border-top:3px solid var(--candela);}
+.tm-icon{font-size:36px;margin-bottom:14px;}
+.tm-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;margin-bottom:4px;}
+.tm-role{font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--candela);margin-bottom:14px;}
+.tm-bio{font-size:14px;color:var(--acero-c);line-height:1.65;}
+
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:54px 0 40px;}
 .foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;}
@@ -167,6 +175,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;}
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){
+  .team-grid{grid-template-columns:1fr;}
   .info-grid{grid-template-columns:1fr;}
   .values{grid-template-columns:repeat(2,1fr);}
   .band{grid-template-columns:1fr;}
@@ -213,10 +222,47 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;}
 <section class="hero sec">
   <div class="wrap">
     <span class="eyebrow">Nosotros</span>
-    <h2 class="h">Nacimos para que<br>tu obra no pare.</h2>
-    <p class="lead" style="max-width:60ch">
-      DOBLAZERO SAS es una empresa de dobléz industrial de lámina en acero, nacida en Envigado, Antioquia. Existimos para resolver un problema concreto: cuando necesitas un doblez de más de 3 metros, casi nadie puede hacerlo. Nosotros sí.
+    <h2 class="h">La palabra<br>es contrato.</h2>
+    <p class="lead" style="max-width:62ch">
+      La historia empieza con la pasión sin límite de Nicolás De Los Ríos por esta industria: una pasión forjada administrando una empresa del sector metalmecánico, viendo de cerca lo que las obras esperan y lo que los talleres incumplen — piezas de 6 metros dobladas por mitades, empates que nadie cotizó, cuadrillas paradas esperando lámina.
     </p>
+    <p class="lead" style="max-width:62ch;margin-top:16px">
+      La convicción fue tan grande que dos inversionistas más le apostaron a construir la solución desde cero: con ahorros propios, sin atajos, máquina por máquina — hasta traer de fábrica la dobladora de 6 metros que este mercado no tenía.
+    </p>
+    <p class="lead" style="max-width:62ch;margin-top:16px">
+      Somos una empresa familiar, y eso significa una cosa: aquí el nombre propio responde por cada entrega.
+    </p>
+  </div>
+</section>
+
+<!-- ============ EL EQUIPO ============ -->
+<section class="sec" id="equipo">
+  <div class="wrap">
+    <div class="bar-head"><div class="bar"></div><div>
+      <span class="eyebrow">Los socios</span>
+      <h2 class="h">Tres personas,<br>una misma convicción.</h2>
+    </div></div>
+
+    <div class="team-grid" style="margin-top:44px;">
+      <div class="tm">
+        <div class="tm-icon">👤</div>
+        <div class="tm-name">Nicolás De Los Ríos</div>
+        <div class="tm-role">Fundador &amp; Líder operativo</div>
+        <p class="tm-bio">Experiencia en administración del sector metalmecánico. Vio el problema de cerca durante años y convirtió esa frustración en la visión de DOBLAZERO. Hoy lidera la operación y la estrategia comercial.</p>
+      </div>
+      <div class="tm">
+        <div class="tm-icon">👤</div>
+        <div class="tm-name">María Clara Chavarriaga</div>
+        <div class="tm-role">Socia inversionista</div>
+        <p class="tm-bio">Aporta visión financiera y respaldo estratégico. Comprometida con el crecimiento sostenible de la empresa y con hacer realidad un proyecto que va más allá de los números.</p>
+      </div>
+      <div class="tm">
+        <div class="tm-icon">👤</div>
+        <div class="tm-name">Franco De Los Ríos</div>
+        <div class="tm-role">Socio inversionista</div>
+        <p class="tm-bio">Aporta respaldo institucional y visión de largo plazo. Cree firmemente en el potencial del sector metalmecánico colombiano y en la promesa de una empresa que cumple.</p>
+      </div>
+    </div>
   </div>
 </section>
 
